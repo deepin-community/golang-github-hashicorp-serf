@@ -1,0 +1,22 @@
+From: Martina Ferrari <tina@debian.org>
+Date: Tue, 7 Nov 2017 19:32:41 +0000
+Subject: Fix untyped int overflow
+
+Fix untyped integer overflow on 32-bit archs.
+---
+ coordinate/client_test.go | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/coordinate/client_test.go b/coordinate/client_test.go
+index 159ed05..8c56be8 100644
+--- a/coordinate/client_test.go
++++ b/coordinate/client_test.go
+@@ -80,7 +80,7 @@ func TestClient_InvalidInPingValues(t *testing.T) {
+ 	dist := client.DistanceTo(other)
+ 
+ 	// Update with a series of invalid ping periods, should return an error and estimated rtt remains unchanged
+-	pings := []int{1<<63 - 1, -35, 11}
++	pings := []int64{1<<63 - 1, -35, 11}
+ 
+ 	for _, ping := range pings {
+ 		expectedErr := fmt.Errorf("round trip time not in valid range, duration %v is not a positive value less than %v", ping, 10*time.Second)

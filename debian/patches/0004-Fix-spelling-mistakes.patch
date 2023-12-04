@@ -1,0 +1,36 @@
+From: Martina Ferrari <tina@debian.org>
+Date: Mon, 23 Oct 2017 06:38:35 +0000
+Subject: Fix spelling mistakes
+
+Fix spelling mistakes spotted by Lintian.
+---
+ cmd/serf/command/members.go | 2 +-
+ serf/serf.go                | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/cmd/serf/command/members.go b/cmd/serf/command/members.go
+index a99633b..cf467ce 100644
+--- a/cmd/serf/command/members.go
++++ b/cmd/serf/command/members.go
+@@ -60,7 +60,7 @@ Usage: serf members [options]
+ 
+ Options:
+ 
+-  -detailed                 Additional information such as protocol verions
++  -detailed                 Additional information such as protocol versions
+                             will be shown (only affects text output format).
+ 
+   -format                   If provided, output is returned in the specified
+diff --git a/serf/serf.go b/serf/serf.go
+index 51543ba..dc6d2e1 100644
+--- a/serf/serf.go
++++ b/serf/serf.go
+@@ -1521,7 +1521,7 @@ func (s *Serf) resolveNodeConflict() {
+ 	}
+ 
+ 	// Since we lost the vote, we need to exit
+-	s.logger.Printf("[WARN] serf: minority in name conflict resolution, quiting [%d / %d]",
++	s.logger.Printf("[WARN] serf: minority in name conflict resolution, quitting [%d / %d]",
+ 		matching, responses)
+ 	if err := s.Shutdown(); err != nil {
+ 		s.logger.Printf("[ERR] serf: Failed to shutdown: %v", err)

@@ -1,0 +1,21 @@
+From: Martina Ferrari <tina@debian.org>
+Date: Mon, 23 Oct 2017 06:35:05 +0000
+Subject: Skip network tests
+
+Forwarded: not-needed
+---
+ cmd/serf/command/agent/command_test.go | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/cmd/serf/command/agent/command_test.go b/cmd/serf/command/agent/command_test.go
+index a314506..1353d96 100644
+--- a/cmd/serf/command/agent/command_test.go
++++ b/cmd/serf/command/agent/command_test.go
+@@ -251,6 +251,7 @@ func TestCommandRun_advertiseAddr(t *testing.T) {
+ }
+ 
+ func TestCommandRun_mDNS(t *testing.T) {
++	t.Skip("Skipping network test")
+ 	if os.Getenv("CI") != "" {
+ 		t.Skip("This test requires IPv6 unicast, which does not work in CircleCI environment")
+ 	}
