@@ -1,0 +1,2 @@
+ops-misc/debian/serf.json.example /etc/serf/
+usr/bin

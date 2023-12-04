@@ -1,15 +1,73 @@
-Source: template-repository
-Section: unknown
+Source: golang-github-hashicorp-serf
+Maintainer: Debian Go Packaging Team <team+pkg-go@tracker.debian.org>
+Uploaders: Martina Ferrari <tina@debian.org>,
+           Tim Potter <tpot@hpe.com>,
+           Dmitry Smirnov <onlyjob@debian.org>,
+Section: golang
+Testsuite: autopkgtest-pkg-go
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Standards-Version: 4.5.0
+Build-Depends: debhelper-compat (= 13),
+               dh-sequence-golang,
+               golang-any,
+               golang-github-armon-circbuf-dev,
+               golang-github-armon-go-metrics-dev,
+               golang-github-hashicorp-go-msgpack-dev (>= 0.5.5~),
+               golang-github-hashicorp-go-syslog-dev,
+               golang-github-hashicorp-logutils-dev,
+               golang-github-hashicorp-mdns-dev,
+               golang-github-hashicorp-memberlist-dev (>= 0.2.2~),
+               golang-github-mitchellh-cli-dev,
+               golang-github-mitchellh-mapstructure-dev,
+               golang-github-ryanuber-columnize-dev,
+Vcs-Browser: https://salsa.debian.org/go-team/packages/golang-github-hashicorp-serf
+Vcs-Git: https://salsa.debian.org/go-team/packages/golang-github-hashicorp-serf.git
+Homepage: https://www.serfdom.io
+XS-Go-Import-Path: github.com/hashicorp/serf
+Rules-Requires-Root: no
 
-Package: template-repository
+Package: serf
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Pre-Depends: ${misc:Pre-Depends}
+Depends: adduser,
+         ${misc:Depends},
+         ${shlibs:Depends},
+Built-Using: ${misc:Built-Using}
+Description: Service orchestration and management tool
+ Serf is a decentralized solution for service discovery and orchestration that
+ is lightweight, highly available, and fault tolerant.
+ .
+ Serf runs on Linux, Mac OS X, and Windows. An efficient and lightweight gossip
+ protocol is used to communicate with other nodes. Serf can detect node failures
+ and notify the rest of the cluster. An event system is built on top of Serf,
+ letting you use Serf's gossip protocol to propagate events such as deploys,
+ configuration changes, etc. Serf is completely masterless with no single point
+ of failure.
+ .
+ This package contains the tool/service.
+
+Package: golang-github-hashicorp-serf-dev
+Architecture: all
+Depends: golang-github-armon-circbuf-dev,
+         golang-github-armon-go-metrics-dev,
+         golang-github-hashicorp-go-msgpack-dev (>= 0.5.5~),
+         golang-github-hashicorp-go-syslog-dev,
+         golang-github-hashicorp-logutils-dev,
+         golang-github-hashicorp-mdns-dev,
+         golang-github-hashicorp-memberlist-dev (>= 0.2.2~),
+         golang-github-mitchellh-cli-dev,
+         golang-github-mitchellh-mapstructure-dev,
+         golang-github-ryanuber-columnize-dev,
+         ${misc:Depends},
+Description: Service orchestration and management tool (source)
+ Serf is a decentralized solution for service discovery and orchestration that
+ is lightweight, highly available, and fault tolerant.
+ .
+ Serf runs on Linux, Mac OS X, and Windows. An efficient and lightweight gossip
+ protocol is used to communicate with other nodes. Serf can detect node failures
+ and notify the rest of the cluster. An event system is built on top of Serf,
+ letting you use Serf's gossip protocol to propagate events such as deploys,
+ configuration changes, etc. Serf is completely masterless with no single point
+ of failure.
+ .
+ This package contains the source.

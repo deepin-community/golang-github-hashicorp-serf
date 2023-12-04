@@ -1,0 +1,22 @@
+From: Martina Ferrari <tina@debian.org>
+Date: Mon, 23 Oct 2017 06:35:05 +0000
+Subject: Skip syslog test
+
+Test requires a running syslogd.
+
+Forwarded: not-needed
+---
+ cmd/serf/command/agent/syslog_test.go | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/cmd/serf/command/agent/syslog_test.go b/cmd/serf/command/agent/syslog_test.go
+index 9509d38..0743d8e 100644
+--- a/cmd/serf/command/agent/syslog_test.go
++++ b/cmd/serf/command/agent/syslog_test.go
+@@ -1,3 +1,6 @@
++//go:build ignore
++// +build ignore
++
+ package agent
+ 
+ import (
